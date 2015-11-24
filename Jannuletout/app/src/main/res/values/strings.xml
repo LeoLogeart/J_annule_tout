@@ -1,0 +1,8 @@
+<resources>
+    <string name="activity_name">Si tu écoutes, j\'annule tout</string>
+    <string name="app_name">J\'annule tout</string>
+    <string name="desc">Image</string>
+    <string name="change">Changer l\'affichage</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
+</resources>
