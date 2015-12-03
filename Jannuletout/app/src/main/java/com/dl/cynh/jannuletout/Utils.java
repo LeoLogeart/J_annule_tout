@@ -144,7 +144,7 @@ public class Utils {
                 break;
             }
         }
-        return res+"/"+getMonthFromStr(date);
+        return res+"."+getMonthFromStr(date);
     }
 
     public static String stripTitle(String title) {
