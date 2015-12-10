@@ -107,7 +107,7 @@ public class Utils {
         title=title+getShortDate(date);
         titles.add(title);
         HashMap<String, String> map = new HashMap<>();
-        if(Utils.getDownloaded().contains(title+date)){//TODO save this
+        if(Utils.getDownloaded().contains(title)){
             map.put("day", getDay(date)+" ( Téléchargé )");
         } else {
             map.put("day", getDay(date));
@@ -239,7 +239,6 @@ public class Utils {
         boolean clara = sharedPref.getBoolean("clara",true);
         boolean andre = sharedPref.getBoolean("andre",true);
         for(HashMap<String,String> item : list){
-            //TODO set images
             if((item.get("img").equals(String.valueOf(R.drawable.andre)) && andre) ||
                     (item.get("img").equals(String.valueOf(R.drawable.meurice)) && meurice) ||
                     (item.get("img").equals(String.valueOf(R.drawable.fromet)) && fromet) ||
