@@ -119,7 +119,7 @@ public class Utils {
             map.put("img",String.valueOf(R.drawable.fromet));
         } else if(item.contains("MEURICE")){
             map.put("img",String.valueOf(R.drawable.meurice));
-        } else if(item.contains("La chronique de Thomas VDB")){
+        } else if(item.contains("La chronique de Thomas VDB") || item.contains("la-chronique-de-thomas-vdb")){
             map.put("img",String.valueOf(R.drawable.vdb));
         } else if(item.contains("La chronique de Clara Dupont-Monod")){
             map.put("img",String.valueOf(R.drawable.clara));
