@@ -125,6 +125,16 @@ public class Utils {
             map.put("img",String.valueOf(R.drawable.clara));
         } else if(item.contains("La chronique d'André Manoukian")){
             map.put("img",String.valueOf(R.drawable.andre));
+        }else if(item.contains("Pablo Mira")){
+            map.put("img",String.valueOf(R.drawable.pablo));
+        }else if(item.contains("Isabelle Sorente")){
+            map.put("img",String.valueOf(R.drawable.isabelle));
+        }else if(item.contains("Juliette Arnaud")){
+            map.put("img",String.valueOf(R.drawable.juliette));
+        }else if(item.contains("Hippolyte Girardot")){
+            map.put("img",String.valueOf(R.drawable.hippolyte));
+        }else if(item.contains("17h17")){
+            map.put("img",String.valueOf(R.drawable.journal));
         }
         listItem.add(map);
 
@@ -238,13 +248,23 @@ public class Utils {
         boolean vdb = sharedPref.getBoolean("vdb",true);
         boolean clara = sharedPref.getBoolean("clara",true);
         boolean andre = sharedPref.getBoolean("andre",true);
+        boolean hippolyte = sharedPref.getBoolean("hippolyte",true);
+        boolean juliette = sharedPref.getBoolean("juliette",true);
+        boolean isabelle = sharedPref.getBoolean("isabelle",true);
+        boolean pablo = sharedPref.getBoolean("pablo",true);
+        boolean journal = sharedPref.getBoolean("journal",true);
         for(HashMap<String,String> item : list){
             if((item.get("img").equals(String.valueOf(R.drawable.andre)) && andre) ||
                     (item.get("img").equals(String.valueOf(R.drawable.meurice)) && meurice) ||
                     (item.get("img").equals(String.valueOf(R.drawable.fromet)) && fromet) ||
                     (item.get("img").equals(String.valueOf(R.drawable.inter)) && integ) ||
                     (item.get("img").equals(String.valueOf(R.drawable.clara)) && clara) ||
-                    (item.get("img").equals(String.valueOf(R.drawable.vdb)) && vdb)
+                    (item.get("img").equals(String.valueOf(R.drawable.vdb)) && vdb) ||
+                    (item.get("img").equals(String.valueOf(R.drawable.hippolyte)) && hippolyte) ||
+                    (item.get("img").equals(String.valueOf(R.drawable.juliette)) && juliette) ||
+                    (item.get("img").equals(String.valueOf(R.drawable.isabelle)) && isabelle) ||
+                    (item.get("img").equals(String.valueOf(R.drawable.pablo)) && pablo) ||
+                    (item.get("img").equals(String.valueOf(R.drawable.journal)) && journal)
                     ){
                 newList.add(item);
             }

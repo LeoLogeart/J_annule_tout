@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,8 +65,28 @@ public class DownloadActivity extends Activity {
         adContainer.addView(adView);
         adView.loadAd(adRequest);
         sharedPref = getPreferences(Context.MODE_PRIVATE);
+        if(!sharedPref.getBoolean("notif1", false))
+        {
+            notify1();
+        }
         utils = new Utils(this);
         startDl();
+    }
+
+    private void notify1() {
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Par Jupiter!");
+        builder.setMessage("L'émission change de nom, l'application aussi.\nMerci de continuer à suivre les podcasts de \"Par Jupiter!\".");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        builder.show();
+        SharedPreferences.Editor edit = sharedPref.edit();
+        edit.putBoolean("notif1",true);
+        edit.apply();
     }
 
     @Override
@@ -104,13 +123,19 @@ public class DownloadActivity extends Activity {
                 sharedPref.getBoolean("clara",true),
                 sharedPref.getBoolean("vdb",true),
                 sharedPref.getBoolean("andre",true),
-                sharedPref.getBoolean("fromet",true)
+                sharedPref.getBoolean("fromet",true),
+                sharedPref.getBoolean("hippolyte",true),
+                sharedPref.getBoolean("pablo",true),
+                sharedPref.getBoolean("isabelle",true),
+                sharedPref.getBoolean("juliette",true),
+                sharedPref.getBoolean("journal",true)
         };
         editor = sharedPref.edit();
         builder.setTitle("Afficher");
         builder.setMultiChoiceItems(
                 new String[]{"Intégrales", "Guillaume Meurice", "Clara Dupont Monod", "Thomas VDB",
-                        "André Manoukian", "Frédéric Fromet"}, checked,
+                        "André Manoukian", "Frédéric Fromet", "Hippolyte Girardot", "Pablo Mira",
+                "Isabelle Sorente", "Juliette Arnaud", "Journal de 17h17"}, checked,
                 new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog,
@@ -133,6 +158,21 @@ public class DownloadActivity extends Activity {
                                 break;
                             case 5:
                                 editor.putBoolean("fromet", isChecked);
+                                break;
+                            case 6:
+                                editor.putBoolean("hippolyte", isChecked);
+                                break;
+                            case 7:
+                                editor.putBoolean("pablo", isChecked);
+                                break;
+                            case 8:
+                                editor.putBoolean("isabelle", isChecked);
+                                break;
+                            case 9:
+                                editor.putBoolean("juliette", isChecked);
+                                break;
+                            case 10:
+                                editor.putBoolean("journal", isChecked);
                                 break;
                         }
 
