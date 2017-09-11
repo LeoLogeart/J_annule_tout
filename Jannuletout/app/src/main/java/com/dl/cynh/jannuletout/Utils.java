@@ -115,15 +115,15 @@ public class Utils {
 
         map.put("description", title);
         map.put("img",String.valueOf(R.drawable.inter));
-        if(item.contains("Fromet")){
+        if(item.contains("fromet")){
             map.put("img",String.valueOf(R.drawable.fromet));
-        } else if(item.contains("MEURICE")){
+        } else if(item.contains("moment-meurice")){
             map.put("img",String.valueOf(R.drawable.meurice));
-        } else if(item.contains("La chronique de Thomas VDB") || item.contains("la-chronique-de-thomas-vdb")){
+        } else if(item.contains("vdb")){
             map.put("img",String.valueOf(R.drawable.vdb));
-        } else if(item.contains("La chronique de Clara Dupont-Monod")){
+        } else if(item.contains("Monod")){
             map.put("img",String.valueOf(R.drawable.clara));
-        } else if(item.contains("La chronique d'André Manoukian")){
+        } else if(item.contains("Manoukian")){
             map.put("img",String.valueOf(R.drawable.andre));
         }else if(item.contains("Pablo Mira")){
             map.put("img",String.valueOf(R.drawable.pablo));
@@ -131,7 +131,7 @@ public class Utils {
             map.put("img",String.valueOf(R.drawable.isabelle));
         }else if(item.contains("Juliette Arnaud")){
             map.put("img",String.valueOf(R.drawable.juliette));
-        }else if(item.contains("Hippolyte Girardot")){
+        }else if(item.contains("hippolyte") || item.contains("Hippolyte") ){
             map.put("img",String.valueOf(R.drawable.hippolyte));
         }else if(item.contains("17h17")){
             map.put("img",String.valueOf(R.drawable.journal));

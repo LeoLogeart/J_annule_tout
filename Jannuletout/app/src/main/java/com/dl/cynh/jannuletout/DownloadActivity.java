@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -65,28 +66,35 @@ public class DownloadActivity extends Activity {
         adContainer.addView(adView);
         adView.loadAd(adRequest);
         sharedPref = getPreferences(Context.MODE_PRIVATE);
-        if(!sharedPref.getBoolean("notif1", false))
-        {
-            notify1();
-        }
+
+        notify1();
+
         utils = new Utils(this);
         startDl();
     }
 
     private void notify1() {
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Par Jupiter!");
-        builder.setMessage("L'émission change de nom, l'application aussi.\nMerci de continuer à suivre les podcasts de \"Par Jupiter!\".");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
+        long installTime = 1505153940295L;// date at which the app changed name
+        try {
+            if (!sharedPref.getBoolean("notif1", false) && (getPackageManager()
+                    .getPackageInfo(getPackageName(), 0)
+                    .firstInstallTime) < installTime) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Par Jupiter!");
+                builder.setMessage("L'émission change de nom, l'application aussi.\nMerci de continuer à suivre les podcasts de \"Par Jupiter!\".");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    }
+                });
+                builder.show();
+                SharedPreferences.Editor edit = sharedPref.edit();
+                edit.putBoolean("notif1", true);
+                edit.apply();
             }
-        });
-        builder.show();
-        SharedPreferences.Editor edit = sharedPref.edit();
-        edit.putBoolean("notif1",true);
-        edit.apply();
+        } catch (PackageManager.NameNotFoundException e) {
+            //do nothing
+        }
     }
 
     @Override
@@ -204,7 +212,7 @@ public class DownloadActivity extends Activity {
         progress.setMessage("Patientez pendant la vérification des podcasts disponibles...");
         progress.show();
         new RequestTask()
-                .execute("http://radiofrance-podcast.net/podcast09/rss_13942.xml");
+                .execute("http://radiofrance-podcast.net/podcast09/rss_18153.xml");
     }
 
     /**
