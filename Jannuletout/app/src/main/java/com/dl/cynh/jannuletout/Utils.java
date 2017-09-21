@@ -90,7 +90,7 @@ public class Utils {
         start = item.indexOf("<title>")+7;
         end = item.indexOf("</title>", start);
         if(start==0 || end==0){
-            title = "?";
+            title = "";
         } else {
             title = stripTitle(item.substring(start,end));
         }
@@ -100,7 +100,7 @@ public class Utils {
         end = item.indexOf("</pubDate>", start);
         String date;
         if(start<=0 || end<=0){
-            date = "?";
+            date = "";
         } else {
             date = item.substring(start,end);
         }
@@ -125,11 +125,11 @@ public class Utils {
             map.put("img",String.valueOf(R.drawable.clara));
         } else if(item.contains("Manoukian")){
             map.put("img",String.valueOf(R.drawable.andre));
-        }else if(item.contains("Pablo Mira")){
+        }else if(item.contains("Pablo Mira") || item.contains("pablo-mira")){
             map.put("img",String.valueOf(R.drawable.pablo));
-        }else if(item.contains("Isabelle Sorente")){
+        }else if(item.contains("Isabelle Sorente") || item.contains("isabelle-sorente")){
             map.put("img",String.valueOf(R.drawable.isabelle));
-        }else if(item.contains("Juliette Arnaud")){
+        }else if(item.contains("Juliette Arnaud") || item.contains("juliette-arnaud")){
             map.put("img",String.valueOf(R.drawable.juliette));
         }else if(item.contains("hippolyte") || item.contains("Hippolyte") ){
             map.put("img",String.valueOf(R.drawable.hippolyte));
@@ -141,7 +141,7 @@ public class Utils {
     }
 
     public static String getShortDate(String date) {
-        if(date.equals("?"))
+        if(date.equals(""))
             return "";
         String res=" - ";
         for(int i=0;i<date.length();i++){
@@ -215,7 +215,7 @@ public class Utils {
      * @return the day of the week contained in the title
      */
     private static String getDay(String title) {
-        String res = "?";
+        String res = "";
         if (title.contains("Mon")) {
             res = "Lundi";
         } else if (title.contains("Tue") ) {
