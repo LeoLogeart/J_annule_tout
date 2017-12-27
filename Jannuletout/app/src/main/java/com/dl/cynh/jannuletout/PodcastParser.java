@@ -113,9 +113,6 @@ public class PodcastParser implements PodcastParserInterface {
     }
 
     private Podcast parseItem(String item) {
-        if(item.contains("gonzalez")){
-            int j;
-        }
         String url = findUrl(item);
         if (url == null) return null;
 
@@ -155,7 +152,7 @@ public class PodcastParser implements PodcastParserInterface {
             type = "Frédéric Fromet";
         } else if (item.contains("moment-meurice")) {
             image = R.drawable.meurice;
-            type = "Guillaume Meuricet";
+            type = "Guillaume Meurice";
         } else if (item.contains("vdb")) {
             image = R.drawable.vdb;
             type = "Thomas VDB";
@@ -186,7 +183,7 @@ public class PodcastParser implements PodcastParserInterface {
         } else if (item.contains("Bauer")){
             image = R.drawable.bauer;
             type = "Mélanie Bauer";
-        } else if (item.contains("bidegain")){
+        } else if (item.contains("bidegain") || item.contains("Bidegain")){
             image = R.drawable.bidegain;
             type = "Thomas Bidegain";
         }

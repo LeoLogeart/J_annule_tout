@@ -6,8 +6,8 @@ android {
         applicationId "com.dl.cynh.jannuletout"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 5
-        versionName "2.0"
+        versionCode 8
+        versionName "2.2"
     }
     buildTypes {
         release {
